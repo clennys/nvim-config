@@ -39,7 +39,6 @@ return require("packer").startup({
 			end,
 			requires = {
 				"williamboman/mason.nvim",
-				"williamboman/mason-lspconfig.nvim",
 				"WhoIsSethDaniel/mason-tool-installer.nvim",
 			}
 		})

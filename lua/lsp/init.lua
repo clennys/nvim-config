@@ -40,3 +40,5 @@ autocmd BufWritePre *.py.in lua vim.lsp.buf.formatting_sync(nil, 10000)
 autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 10000)
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 10000)
 ]])
+
+require("lsp.handlers").setup()
