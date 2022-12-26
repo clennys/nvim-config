@@ -5,12 +5,12 @@ require("mason").setup {}
 
 require("mason-tool-installer").setup {
 	ensure_installed = { "clangd", "clang-format", "stylua", "shfmt", "bash-language-server", "black", "pyright",
-		"lua-language-server", "ltex-ls" },
+		"lua-language-server", "texlab" },
 	auto_update = false,
 	run_on_start = true,
 }
 
-local servers = { "clangd", "bashls", "pyright", "sumneko_lua", "ltex" }
+local servers = { "clangd", "bashls", "pyright", "sumneko_lua", "texlab" }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 

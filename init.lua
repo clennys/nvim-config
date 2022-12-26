@@ -7,6 +7,4 @@
 
 -- init
 require("plugins")
-require("general.opt")
-require("general.map")
-require("general.autocmd")
+require("general")
