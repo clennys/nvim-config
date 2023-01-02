@@ -25,6 +25,12 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
 
+	if server == "texlab" then
+		local texlab_opts = require("lsp.settings.texlab")
+		opts = vim.tbl_deep_extend("force", texlab_opts, opts)
+	end
+
+
 	-- end
 
 	lspconfig[server].setup(opts)
