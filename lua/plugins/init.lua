@@ -72,6 +72,7 @@ return require("packer").startup({
 			"~/Projects/neovim/orca.nvim",
 			config = function()
 				require("orca")
+				vim.cmd [[hi Normal guibg=None]]
 			end,
 		})
 
@@ -153,6 +154,7 @@ return require("packer").startup({
 			"norcalli/nvim-colorizer.lua",
 			config = function()
 				require("plugins.settings.colorizer")
+				vim.cmd [[highlight Normal guibg=None]]
 			end,
 		})
 
@@ -165,12 +167,6 @@ return require("packer").startup({
 				require("goto-preview").setup({})
 			end,
 		})
-		use {
-			'lukas-reineke/headlines.nvim',
-			config = function()
-				require('plugins.settings.headlines')
-			end,
-		}
 
 		use { 'mfussenegger/nvim-dap',
 			requires = {
@@ -193,8 +189,16 @@ return require("packer").startup({
 		-- 	require("plugins.lualine")
 		-- end
 		-- }
-		use "numToStr/FTerm.nvim"
-		use 'mfussenegger/nvim-jdtls'
+		use {
+			"j-hui/fidget.nvim",
+			config = function()
+				require "fidget".setup {
+					text = {
+						spinner = "moon"
+					}
+				}
+			end
+		}
 	end,
 	-- Packer settings
 	config = {

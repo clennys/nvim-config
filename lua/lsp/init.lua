@@ -5,17 +5,17 @@ require("mason").setup {}
 
 require("mason-tool-installer").setup {
 	ensure_installed = { "clangd", "clang-format", "stylua", "shfmt", "bash-language-server", "black", "pyright",
-		"lua-language-server", "texlab" },
+		"lua-language-server", "texlab", "marksman" },
 	auto_update = false,
 	run_on_start = true,
 }
 
-local servers = { "clangd", "bashls", "pyright", "sumneko_lua", "texlab" }
+local servers = { "clangd", "bashls", "pyright", "sumneko_lua", "texlab", "marksman" }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 for _, server in pairs(servers) do
-	opts = {
+	local opts = {
 		on_attach = require("lsp.handlers").on_attach,
 		capabilities = capabilities,
 	}
@@ -34,7 +34,6 @@ for _, server in pairs(servers) do
 	-- end
 
 	lspconfig[server].setup(opts)
-	::continue::
 end
 
 -- Autocommand
