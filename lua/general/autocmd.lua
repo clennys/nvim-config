@@ -3,7 +3,7 @@ local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("FileType", {
 	pattern = { "markdown", "tex" },
-	command = "set wrap "
+	command = "set wrap conceallevel=1"
 })
 
 autocmd("FileType", {

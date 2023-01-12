@@ -12,6 +12,8 @@ M.setup = function()
 		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 	end
 
+	local border = "single"
+
 	local config = {
 		virtual_text = true,
 		signs = true,
@@ -21,6 +23,7 @@ M.setup = function()
 		float = {
 			focusable = false,
 			style = "minimal",
+			border = border,
 			source = "always",
 			header = "",
 			prefix = "",
@@ -28,6 +31,34 @@ M.setup = function()
 	}
 
 	vim.diagnostic.config(config)
+
+	local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+	function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+		opts = opts or {}
+		opts.border = opts.border or border
+		return orig_util_open_floating_preview(contents, syntax, opts, ...)
+	end
+
+	function PrintDiagnostics(opts, bufnr, line_nr, client_id)
+		bufnr = bufnr or 0
+		line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
+		opts = opts or { ['lnum'] = line_nr }
+
+		local line_diagnostics = vim.diagnostic.get(bufnr, opts)
+		if vim.tbl_isempty(line_diagnostics) then return end
+
+		local diagnostic_message = ""
+		for i, diagnostic in ipairs(line_diagnostics) do
+			diagnostic_message = diagnostic_message .. string.format("%d: %s", i, diagnostic.message or "")
+			print(diagnostic_message)
+			if i ~= #line_diagnostics then
+				diagnostic_message = diagnostic_message .. "\n"
+			end
+		end
+		vim.api.nvim_echo({ { diagnostic_message, "Normal" } }, false, {})
+	end
+
+	vim.cmd [[ autocmd! CursorHold * lua PrintDiagnostics() ]]
 
 end
 
@@ -56,10 +87,14 @@ M.on_attach = function(client, bufnr)
 	buf_set_keymap("n", "]u", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 	buf_set_keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 	buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format{async = true}<CR>", opts)
-	buf_set_keymap("n", "gpd", "<cmd> lua require('goto-preview').goto_preview_definition()<CR>", opts)
-	buf_set_keymap("n", "gpi", "<cmd> lua require('goto-preview').goto_preview_implementation()<CR>", opts)
-	buf_set_keymap("n", "gP", "<cmd> lua require('goto-preview').close_all_win()<CR>", opts)
-	buf_set_keymap("n", "gpr", "<cmd> lua require('goto-preview').goto_preview_references()<CR>", opts)
+	buf_set_keymap("n", "<leader>pd", "<cmd> lua require('goto-preview').goto_preview_definition()<CR>", opts)
+	buf_set_keymap("n", "<leader>pi", "<cmd> lua require('goto-preview').goto_preview_implementation()<CR>", opts)
+	buf_set_keymap("n", "<leader>cp", "<cmd> lua require('goto-preview').close_all_win()<CR>", opts)
+	buf_set_keymap("n", "<leader>pr", "<cmd> lua require('goto-preview').goto_preview_references()<CR>", opts)
+	buf_set_keymap("n", '<leader>ds', require('telescope.builtin').lsp_document_symbols, opts)
+	buf_set_keymap("n", '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, opts)
+
+
 end
 
 return M

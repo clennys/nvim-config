@@ -74,5 +74,6 @@ map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 -- Undotree
 map("n", "<leader>ut", "<cmd>UndotreeToggle<cr>")
 
--- FTerm
-map("n", "te", "<CMD>lua require('FTerm').toggle()<CR>")
+-- Peek
+vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
+vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})

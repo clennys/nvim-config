@@ -108,13 +108,20 @@ return require("packer").startup({
 			end,
 		})
 
-		-- -- Indent Lines
-		use({
-			"lukas-reineke/indent-blankline.nvim",
-			event = "BufRead",
+		-- -- -- Indent Lines
+		-- use({
+		-- 	"lukas-reineke/indent-blankline.nvim",
+		-- 	event = "BufRead",
+		-- 	config = function()
+		-- 		require("plugins.settings.indentline")
+		-- 	end,
+		-- })
+		use({ 'echasnovski/mini.nvim',
 			config = function()
-				require("plugins.settings.indentline")
-			end,
+				require('mini.indentscope').setup({
+					symbol = '▏',
+				})
+			end
 		})
 
 		-- Pairs
@@ -199,6 +206,13 @@ return require("packer").startup({
 				}
 			end
 		}
+		use({ 'toppair/peek.nvim',
+			run = 'deno task --quiet build:fast',
+			config = function()
+				require('peek').setup({
+					theme = 'light',
+				})
+			end })
 	end,
 	-- Packer settings
 	config = {
