@@ -1,4 +1,11 @@
-require("nvim-treesitter.configs").setup({
+return {
+			"nvim-treesitter/nvim-treesitter",
+			build = ":TSUpdate",
+			requires = {
+				{ "nvim-treesitter/nvim-treesitter-textobjects" },
+				{ "nvim-treesitter/nvim-treesitter-refactor", { "nvim-treesitter/playground" } },
+			},
+config = {
 	ensure_installed = "all",
 	highlight = {
 		enable = true,
@@ -43,6 +50,15 @@ require("nvim-treesitter.configs").setup({
 	-- nvim-treesitter-refactor
 	refactor = {
 		highlight_definitions = { enable = true },
-		highlight_current_scope = { enable = true },
 	},
-})
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "<CR>",
+			node_incremental = "<CR>",
+			scope_incremental = "<S-CR>",
+			node_decremental = "<BS>",
+		},
+	},
+}
+}

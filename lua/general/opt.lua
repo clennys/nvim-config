@@ -37,3 +37,7 @@ o.cursorline = true
 o.undofile = true
 o.swapfile = false
 o.spelllang = "de"
+
+vim.o.completeopt = "menu,menuone,noselect"
+vim.opt.shortmess:append("c")
+

@@ -1,0 +1,3 @@
+return {
+	"rmagatti/goto-preview",
+}
