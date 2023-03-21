@@ -37,7 +37,6 @@ local setup = function()
 			documentation = cmp.config.window.bordered({ border = 'single' }),
 		},
 	})
-
 end
 
 return {
@@ -53,5 +52,4 @@ return {
 		{ "onsails/lspkind-nvim" },
 	},
 	config = setup
-
 }
