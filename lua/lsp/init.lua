@@ -10,7 +10,7 @@ require("mason-tool-installer").setup {
 	run_on_start = true,
 }
 
-local servers = { "clangd", "bashls", "pyright", "sumneko_lua", "texlab", "marksman" }
+local servers = { "clangd", "bashls", "pyright", "lua_ls", "texlab", "marksman" }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -20,9 +20,9 @@ for _, server in pairs(servers) do
 		capabilities = capabilities,
 	}
 
-	if server == "sumneko_lua" then
-		local sumneko_opts = require("lsp.settings.sumneko_lua")
-		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+	if server == "lua_ls" then
+		local lua_ls_opts = require("lsp.settings.lua_ls")
+		opts = vim.tbl_deep_extend("force", lua_ls_opts, opts)
 	end
 
 	if server == "texlab" then
