@@ -2,7 +2,11 @@ local setup = function()
 	local cmp = require("cmp")
 	local lspkind = require("lspkind")
 	local luasnip = require("luasnip")
-
+	local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+	cmp.event:on(
+		'confirm_done',
+		cmp_autopairs.on_confirm_done()
+	)
 	vim.o.completeopt = "menu,menuone,noselect"
 	vim.opt.shortmess:append("c")
 

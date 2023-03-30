@@ -10,7 +10,7 @@ require("mason-tool-installer").setup {
 	run_on_start = true,
 }
 
-local servers = { "clangd", "bashls", "pyright", "lua_ls", "texlab", "marksman" }
+local servers = { "clangd", "bashls", "pyright", "lua_ls", "texlab", "marksman", "sqlls" }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
