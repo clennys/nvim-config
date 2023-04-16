@@ -1,14 +1,12 @@
 -- Mappings
 
-local g = vim.g
-
 -- Helper Function
 local function map(mode, lhs, rhs, opts)
 	local options = { noremap = true, silent = true }
 	if opts then
 		options = vim.tbl_extend("force", options, opts)
 	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	vim.keymap.set(mode, lhs, rhs, options)
 end
 
 -- Nvim
@@ -72,5 +70,34 @@ map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 map("n", "<leader>ut", "<cmd>UndotreeToggle<cr>")
 
 -- Peek
-vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
-vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
+map("n", "<Leader>dv", function()
+	-- Note: setting `expr=true` and returning the value are essential
+	return require('debugprint').debugprint({ variable = true })
+end, {
+	expr = true,
+})
+map("n", "<Leader>dl", function()
+	-- Note: setting `expr=true` and returning the value are essential
+	return require('debugprint').debugprint()
+end, {
+	expr = true,
+})
+
+map("n", "<Leader>Dv", function()
+	return require('debugprint').debugprint({ above = true, variable = true })
+end, {
+	expr = true,
+})
+
+map("n", "<Leader>Dl", function()
+	return require('debugprint').debugprint({ above = true, variable = true })
+end, {
+	expr = true,
+})
+
+map("n", "<Leader>do", function()
+	-- It's also important to use motion = true for operator-pending motions
+	return require('debugprint').debugprint({ motion = true })
+end, {
+	expr = true,
+})
