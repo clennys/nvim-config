@@ -3,9 +3,9 @@ local M = {}
 M.setup = function()
 	local signs = {
 		{ name = "DiagnosticSignError", text = "" },
-		{ name = "DiagnosticSignWarn", text = "!" },
-		{ name = "DiagnosticSignInfo", text = "" },
-		{ name = "DiagnosticSignHint", text = "" },
+		{ name = "DiagnosticSignWarn",  text = "!" },
+		{ name = "DiagnosticSignInfo",  text = "" },
+		{ name = "DiagnosticSignHint",  text = "" },
 	}
 
 	for _, sign in ipairs(signs) do
@@ -64,15 +64,13 @@ M.on_attach = function(client, bufnr)
 	buf_set_keymap("n", "[u", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 	buf_set_keymap("n", "]u", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 	buf_set_keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-	buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format{async = true}<CR>", opts)
+	buf_set_keymap("n", "<leader>mf", "<cmd>lua vim.lsp.buf.format{async = true}<CR>", opts)
 	buf_set_keymap("n", "<leader>pd", "<cmd> lua require('goto-preview').goto_preview_definition()<CR>", opts)
 	buf_set_keymap("n", "<leader>pi", "<cmd> lua require('goto-preview').goto_preview_implementation()<CR>", opts)
 	buf_set_keymap("n", "<leader>cp", "<cmd> lua require('goto-preview').close_all_win()<CR>", opts)
 	buf_set_keymap("n", "<leader>pr", "<cmd> lua require('goto-preview').goto_preview_references()<CR>", opts)
 	buf_set_keymap("n", '<leader>ds', require('telescope.builtin').lsp_document_symbols, opts)
 	buf_set_keymap("n", '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, opts)
-
-
 end
 
 return M

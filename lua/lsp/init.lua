@@ -36,14 +36,4 @@ for _, server in pairs(servers) do
 	lspconfig[server].setup(opts)
 end
 
--- Autocommand
-vim.cmd([[
-autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 10000)
-autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 10000)
-autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 10000)
-autocmd BufWritePre *.py.in lua vim.lsp.buf.formatting_sync(nil, 10000)
-autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 10000)
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 10000)
-]])
-
 require("lsp.handlers").setup()

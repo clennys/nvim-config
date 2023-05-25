@@ -15,7 +15,7 @@ autocmd("BufWritePre", {
 	callback = function()
 		vim.lsp.buf.format()
 	end,
-	pattern = { "*.js", "*.ts", "*.py", "*.py.in", "*.lua", "*.cpp", "*.h", "*.cc" }
+	pattern = { "*.js", "*.ts", "*.lua", "*.cpp", "*.h", "*.cc" }
 })
 
 autocmd("TextYankPost", {

@@ -46,22 +46,20 @@ vnoremap K :m '<-2<CR>gv=gv
 ]])
 
 -- Telescope
-map("n", "gf", "<cmd>Telescope find_files<cr>")
+map("n", "<leader>f", "<cmd>Telescope find_files<cr>")
 map("n", "<leader>t", "<cmd>Telescope tags<cr>")
 map("n", "go", "<cmd>Telescope buffers<cr>")
-map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+map("n", "<leader>ht", "<cmd>Telescope help_tags<cr>")
 map("n", "<leader>ch", "<cmd>Telescope command_history<cr>")
 map("n", "<leader>gc", "<cmd>Telescope git_commits<cr>")
 map("n", "<leader>gs", "<cmd>Telescope git_status<cr>")
 map("n", "<leader>gb", "<cmd>Telescope git_branches<cr>")
 map("n", "<leader>rg", "<cmd>Telescope registers<cr>")
 map("n", "<leader>ct", "<cmd>Telescope quickfix<cr>")
-map("n", "<leader>gl", "<cmd>Telescope live_grep<cr>")
+map("n", "<leader>ss", "<cmd>Telescope live_grep<cr>")
 map("n", "ma", "<cmd>Telescope keymaps<cr>")
-
-map("n", "<leader>un", "<cmd>lua require('plugins.telescope').university()<CR>")
-map("n", "<leader>.", "<cmd>lua require('plugins.telescope').dotfiles()<CR>")
-map("n", "<leader>nv", "<cmd>lua require('plugins.telescope').nvim_conf()<CR>")
+map("n", "<leader>pd", "<cmd>Telescope lsp_document_symbols<cr>")
+map("n", "<leader>sg", "<cmd>Telescope spell_suggest<cr>")
 
 -- Nvim-Tree
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
