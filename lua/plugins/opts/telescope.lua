@@ -43,9 +43,6 @@ local setup = function()
 			qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 		},
 	})
-
-	telescope.load_extension("fzf")
-
 end
 return {
 	"nvim-telescope/telescope.nvim",

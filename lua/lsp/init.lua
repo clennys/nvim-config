@@ -1,16 +1,7 @@
 -- LSP Setup
 local lspconfig = require("lspconfig")
 
-require("mason").setup {}
-
-require("mason-tool-installer").setup {
-	ensure_installed = { "clangd", "clang-format", "stylua", "shfmt", "bash-language-server", "black", "pyright",
-		"lua-language-server", "texlab", "marksman" },
-	auto_update = false,
-	run_on_start = true,
-}
-
-local servers = { "clangd", "bashls", "pyright", "lua_ls", "texlab", "marksman", "sqlls" }
+local servers = { "clangd", "bashls", "pyright", "lua_ls", "texlab", "nixd" }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
