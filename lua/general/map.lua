@@ -99,3 +99,5 @@ map("n", "<Leader>do", function()
 end, {
 	expr = true,
 })
+
+map("n", "<C-f>", "<cmd>ToggleTerm direction=float<cr>")

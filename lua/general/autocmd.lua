@@ -11,12 +11,12 @@ autocmd("FileType", {
 	command = "set linebreak"
 })
 
-autocmd("BufWritePre", {
-	callback = function()
-		vim.lsp.buf.format()
-	end,
-	pattern = { "*.js", "*.ts", "*.lua", "*.cpp", "*.h", "*.cc" }
-})
+-- autocmd("BufWritePre", {
+-- 	callback = function()
+-- 		vim.lsp.buf.format()
+-- 	end,
+-- 	pattern = { "*.js", "*.ts", "*.lua", "*.cpp", "*.h", "*.cc" }
+-- })
 
 autocmd("TextYankPost", {
 	callback = function()
@@ -27,4 +27,8 @@ autocmd("TextYankPost", {
 autocmd("FileType", {
 	pattern = { "cpp", "c", "cc" },
 	command = "setlocal ts=2 sts=2 sw=2",
+})
+
+autocmd({"VimEnter", "VimLeave", "VimSuspend", "VimResume"}, {
+	command = "silent !tmux set status",
 })
