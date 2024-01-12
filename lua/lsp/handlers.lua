@@ -31,6 +31,9 @@ M.setup = function()
 	}
 
 	vim.diagnostic.config(config)
+	-- if client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+            -- vim.lsp.inlay_hint.enable(args.buf, true)
+        -- end
 
 	local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 	function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)

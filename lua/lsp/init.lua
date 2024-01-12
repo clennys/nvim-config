@@ -21,8 +21,10 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", texlab_opts, opts)
 	end
 
-
-	-- end
+	if server == "clangd" then
+		local clangd_opt = require("lsp.settings.clangd")
+		opts = vim.tbl_deep_extend("force", clangd_opt, opts)
+	end
 
 	lspconfig[server].setup(opts)
 end

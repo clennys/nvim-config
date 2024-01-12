@@ -44,7 +44,7 @@ local setup = function()
 		-- nvim-treesitter-refactor
 		refactor = {
 			highlight_definitions = { enable = true },
-			highlight_current_scope = { enable = true },
+			highlight_current_scope = { enable = false },
 		},
 	})
 end

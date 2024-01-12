@@ -33,12 +33,14 @@ o.wrap = false
 
 o.cursorline = true
 -- o.concealcursor = ''
--- o.conceallevel = 2
+o.conceallevel = 0
 o.undofile = true
 o.swapfile = false
 
 o.spelllang = "en"
 -- o.spell = true
+o.cmdheight = 1
 
-vim.o.completeopt = "menu,menuone,noselect"
-vim.opt.shortmess:append("c")
+o.completeopt = "menu,menuone,noselect"
+o.shortmess:append("c")
+o.showmode = false
