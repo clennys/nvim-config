@@ -1,5 +1,4 @@
 -- Mappings
-
 -- Helper Function
 local function map(mode, lhs, rhs, opts)
 	local options = { noremap = true, silent = true }
@@ -8,7 +7,6 @@ local function map(mode, lhs, rhs, opts)
 	end
 	vim.keymap.set(mode, lhs, rhs, options)
 end
-
 -- Nvim
 map("n", "H", "^")
 map("n", "L", "$")
@@ -101,3 +99,8 @@ end, {
 })
 
 map("n", "<C-f>", "<cmd>ToggleTerm direction=float<cr>")
+
+map("n", "<leader>se", function() require("scissors").editSnippet() end)
+
+-- When used in visual mode prefills the selection as body.
+map({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end)

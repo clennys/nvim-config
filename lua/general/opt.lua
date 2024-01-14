@@ -39,7 +39,7 @@ o.swapfile = false
 
 o.spelllang = "en"
 -- o.spell = true
-o.cmdheight = 1
+-- o.cmdheight = 1
 
 o.completeopt = "menu,menuone,noselect"
 o.shortmess:append("c")
