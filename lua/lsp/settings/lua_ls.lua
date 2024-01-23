@@ -1,22 +1,17 @@
 return {
-	settings = {
-		Lua = {
-			runtime = {
-				-- LuaJIT in the case of Neovim
-				version = "LuaJIT",
-				path = vim.split(package.path, ";"),
-			},
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = { "vim", "awesome", "client", "root", "use" },
-			},
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-					['/usr/share/awesome/lib'] = true
-				},
+	Lua = {
+		runtime = {
+			-- Tell the language server which version of Lua you're using
+			-- (most likely LuaJIT in the case of Neovim)
+			version = "LuaJIT",
+		},
+		-- Make the server aware of Neovim runtime files
+		workspace = {
+			checkThirdParty = false,
+			library = {
+				vim.env.VIMRUNTIME,
+				-- "${3rd}/luv/library"
+				-- "${3rd}/busted/library",
 			},
 		},
 	},

@@ -9,6 +9,7 @@ local setup = function()
 			lua = { "stylua" },
 			cpp = {"clang_format"},
 			python = { "black" },
+			nix = {"alejandra", "nixfmt"}
 		},
 	})
 

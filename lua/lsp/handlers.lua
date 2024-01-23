@@ -32,8 +32,8 @@ M.setup = function()
 
 	vim.diagnostic.config(config)
 	-- if client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-            -- vim.lsp.inlay_hint.enable(args.buf, true)
-        -- end
+	-- vim.lsp.inlay_hint.enable(args.buf, true)
+	-- end
 
 	local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 	function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -62,18 +62,25 @@ M.on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-	buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+	buf_set_keymap("n", "gr", function()
+		require("trouble").toggle("lsp_references")
+	end, opts)
 	buf_set_keymap("n", "<leader>of", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	buf_set_keymap("n", "[u", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 	buf_set_keymap("n", "]u", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-	buf_set_keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+	buf_set_keymap("n", "<leader>dc", function()
+		require("trouble").toggle("document_diagnostics")
+	end, opts)
+	buf_set_keymap("n", "<leader>dC", function()
+		require("trouble").toggle("workspace_diagnostics")
+	end, opts)
 	buf_set_keymap("n", "<leader>mf", "<cmd>lua vim.lsp.buf.format{async = true}<CR>", opts)
 	buf_set_keymap("n", "<leader>pd", "<cmd> lua require('goto-preview').goto_preview_definition()<CR>", opts)
 	buf_set_keymap("n", "<leader>pi", "<cmd> lua require('goto-preview').goto_preview_implementation()<CR>", opts)
 	buf_set_keymap("n", "<leader>cp", "<cmd> lua require('goto-preview').close_all_win()<CR>", opts)
 	buf_set_keymap("n", "<leader>pr", "<cmd> lua require('goto-preview').goto_preview_references()<CR>", opts)
-	buf_set_keymap("n", '<leader>ds', require('telescope.builtin').lsp_document_symbols, opts)
-	buf_set_keymap("n", '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, opts)
+	buf_set_keymap("n", "<leader>ds", require("telescope.builtin").lsp_document_symbols, opts)
+	buf_set_keymap("n", "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, opts)
 end
 
 return M

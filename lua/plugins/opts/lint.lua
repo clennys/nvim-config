@@ -3,10 +3,9 @@ local setup = function()
 
 	lint.linters_by_ft = {
 		python = { "pylint" },
-		cpp = {"clangtidy"},
-		nix = {"nix"},
-		lua = {"luacheck"}
-
+		-- cpp = { "cppcheck" },
+		nix = { "nix" },
+		lua = { "luacheck" },
 	}
 
 	local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -29,5 +28,5 @@ return {
 		"BufReadPre",
 		"BufNewFile",
 	},
-	config = setup
+	config = setup,
 }

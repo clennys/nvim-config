@@ -24,6 +24,7 @@ for _, server in pairs(servers) do
 	if server == "clangd" then
 		local clangd_opt = require("lsp.settings.clangd")
 		opts = vim.tbl_deep_extend("force", clangd_opt, opts)
+		vim.keymap.set("n", "gh", "<cmd>ClangdSwitchSourceHeader<CR>", { noremap = true, silent = true, buffer = bufnr })
 	end
 
 	lspconfig[server].setup(opts)
