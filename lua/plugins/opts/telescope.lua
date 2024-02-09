@@ -1,10 +1,7 @@
--- local actions = require("telescope.actions")
--- local trouble = require("trouble.providers.telescope")
-local telescope = require("telescope")
--- Telescope
 local setup = function()
-	-- Telescope
-	telescope.setup({
+-- local actions = require("telescope.actions")
+local trouble = require("trouble.providers.telescope")
+	require("telescope").setup({
 		defaults = {
 			vimgrep_arguments = {
 				"rg",
@@ -43,10 +40,10 @@ local setup = function()
 			file_previewer = require("telescope.previewers").vim_buffer_cat.new,
 			grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 			qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-			-- mappings = {
-				-- i = { ["<c-t>"] = trouble.open_with_trouble },
-				-- n = { ["<c-t>"] = trouble.open_with_trouble },
-			-- },
+			mappings = {
+				i = { ["<c-t>"] = trouble.open_with_trouble },
+				n = { ["<c-t>"] = trouble.open_with_trouble },
+			},
 		},
 	})
 end
@@ -57,6 +54,7 @@ return {
 		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{ "nvim-telescope/telescope-ui-select.nvim" },
+		{ "folke/trouble.nvim" },
 	},
 	config = setup,
 }
