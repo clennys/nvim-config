@@ -7,7 +7,7 @@ local setup = function()
 		'confirm_done',
 		cmp_autopairs.on_confirm_done()
 	)
-	vim.o.completeopt = "menu,menuone,noselect"
+	vim.opt.completeopt = "menu,menuone,noselect"
 	vim.opt.shortmess:append("c")
 
 	cmp.setup({

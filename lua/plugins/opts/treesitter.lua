@@ -19,7 +19,8 @@ local setup = function()
 					["il"] = "@loop.inner",
 					["ab"] = "@block.outer",
 					["ib"] = "@block.inner",
-					["cm"] = "@comment.outer",
+					["am"] = "@comment.outer",
+					["ci"] = "@comment.inner",
 					-- ["ss"] = "@statement.outer",
 				},
 			},
@@ -55,5 +56,5 @@ return {
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		{ "nvim-treesitter/nvim-treesitter-refactor", { "nvim-treesitter/playground" } },
 	},
-	config = setup
+	config = setup,
 }
