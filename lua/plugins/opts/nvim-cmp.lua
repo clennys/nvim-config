@@ -2,11 +2,8 @@ local setup = function()
 	local cmp = require("cmp")
 	local lspkind = require("lspkind")
 	local luasnip = require("luasnip")
-	local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-	cmp.event:on(
-		'confirm_done',
-		cmp_autopairs.on_confirm_done()
-	)
+	local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 	vim.opt.completeopt = "menu,menuone,noselect"
 	vim.opt.shortmess:append("c")
 
@@ -38,7 +35,7 @@ local setup = function()
 			format = lspkind.cmp_format({ with_text = true, maxwidth = 50 }),
 		},
 		window = {
-			documentation = cmp.config.window.bordered({ border = 'single' }),
+			documentation = cmp.config.window.bordered({ border = "single" }),
 		},
 	})
 end
@@ -55,5 +52,5 @@ return {
 		{ "rcarriga/cmp-dap" },
 		{ "onsails/lspkind-nvim" },
 	},
-	config = setup
+	config = setup,
 }

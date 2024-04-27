@@ -12,7 +12,6 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 
-
 vim.opt.rtp:prepend(lazypath)
 
 -- Leader
@@ -20,4 +19,4 @@ vim.g.mapleader = " "
 
 vim.opt.termguicolors = true
 
-require("lazy").setup('plugins.opts')
+require("lazy").setup("plugins.opts")

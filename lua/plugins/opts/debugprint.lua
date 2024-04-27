@@ -6,5 +6,5 @@ local setup = function()
 end
 return {
 	"andrewferrier/debugprint.nvim",
-	config = setup
+	config = setup,
 }

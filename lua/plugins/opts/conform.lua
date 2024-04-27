@@ -7,9 +7,10 @@ local setup = function()
 			yaml = { "prettier" },
 			markdown = { "prettier" },
 			lua = { "stylua" },
-			cpp = {"clang_format"},
+			cpp = { "clang_format" },
+			go = { "goimports", "gofmt" },
 			python = { "black" },
-			nix = {"alejandra", "nixfmt"}
+			nix = { "alejandra", "nixfmt" },
 		},
 	})
 

@@ -4,6 +4,7 @@ local setup = function()
 	lint.linters_by_ft = {
 		python = { "pylint" },
 		-- cpp = { "cppcheck" },
+		go = { "golangcilint" },
 		nix = { "nix" },
 		lua = { "luacheck" },
 	}

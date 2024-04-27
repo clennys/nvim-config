@@ -3,12 +3,12 @@ local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("FileType", {
 	pattern = { "markdown", "tex" },
-	command = "set wrap conceallevel=1"
+	command = "set wrap conceallevel=1",
 })
 
 autocmd("FileType", {
 	pattern = { "markdown", "tex" },
-	command = "set linebreak"
+	command = "set linebreak",
 })
 
 -- autocmd("BufWritePre", {
@@ -21,7 +21,7 @@ autocmd("FileType", {
 autocmd("TextYankPost", {
 	callback = function()
 		vim.highlight.on_yank()
-	end
+	end,
 })
 
 autocmd("FileType", {
@@ -29,6 +29,6 @@ autocmd("FileType", {
 	command = "setlocal ts=2 sts=2 sw=2",
 })
 
-autocmd({"VimEnter", "VimLeave", "VimSuspend", "VimResume"}, {
+autocmd({ "VimEnter", "VimLeave", "VimSuspend", "VimResume" }, {
 	command = "silent !tmux set status",
 })

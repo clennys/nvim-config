@@ -25,10 +25,18 @@ map("n", "Y", "y$")
 map("n", "<leader>y", '"+y')
 map("v", "<leader>y", '"+y')
 map("n", "<leader>p", '"+p')
-map("n", "cp", function ()require("trouble").previous({skip_groups = true, jump = true})end)
-map("n", "cn", function() require("trouble").next({skip_groups = true, jump = true})end)
-map("n", "co", function() require("trouble").toggle() end)
-map("n", "cq", function() require("trouble").toggle() end)
+map("n", "cp", function()
+	require("trouble").previous({ skip_groups = true, jump = true })
+end)
+map("n", "cn", function()
+	require("trouble").next({ skip_groups = true, jump = true })
+end)
+map("n", "co", function()
+	require("trouble").toggle()
+end)
+map("n", "cq", function()
+	require("trouble").toggle()
+end)
 map("i", ",", ",<c-g>u")
 map("i", ":", ":<c-g>u")
 map("i", ";", ";<c-g>u")
@@ -64,39 +72,43 @@ map("n", "<leader>ut", "<cmd>UndotreeToggle<cr>")
 -- Peek
 map("n", "<Leader>dv", function()
 	-- Note: setting `expr=true` and returning the value are essential
-	return require('debugprint').debugprint({ variable = true })
+	return require("debugprint").debugprint({ variable = true })
 end, {
 	expr = true,
 })
 map("n", "<Leader>dl", function()
 	-- Note: setting `expr=true` and returning the value are essential
-	return require('debugprint').debugprint()
+	return require("debugprint").debugprint()
 end, {
 	expr = true,
 })
 
 map("n", "<Leader>Dv", function()
-	return require('debugprint').debugprint({ above = true, variable = true })
+	return require("debugprint").debugprint({ above = true, variable = true })
 end, {
 	expr = true,
 })
 
 map("n", "<Leader>Dl", function()
-	return require('debugprint').debugprint({ above = true, variable = true })
+	return require("debugprint").debugprint({ above = true, variable = true })
 end, {
 	expr = true,
 })
 
 map("n", "<Leader>do", function()
 	-- It's also important to use motion = true for operator-pending motions
-	return require('debugprint').debugprint({ motion = true })
+	return require("debugprint").debugprint({ motion = true })
 end, {
 	expr = true,
 })
 
 map("n", "<C-f>", "<cmd>ToggleTerm direction=float<cr>")
 
-map("n", "<leader>se", function() require("scissors").editSnippet() end)
+map("n", "<leader>se", function()
+	require("scissors").editSnippet()
+end)
 
 -- When used in visual mode prefills the selection as body.
-map({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end)
+map({ "n", "x" }, "<leader>sa", function()
+	require("scissors").addNewSnippet()
+end)

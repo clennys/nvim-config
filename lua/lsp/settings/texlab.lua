@@ -7,22 +7,21 @@ return {
 				args = { "-pdf", "-pvc", "-interaction=nonstopmode", "-synctex=1", "%f" },
 				executable = "latexmk",
 				forwardSearchAfter = false,
-				onSave = false
+				onSave = false,
 			},
 			chktex = {
 				onEdit = false,
-				onOpenAndSave = false
+				onOpenAndSave = false,
 			},
 			diagnosticsDelay = 300,
 			formatterLineLength = 80,
 			forwardSearch = {
-				args = {}
+				args = {},
 			},
 			latexFormatter = "latexindent",
 			latexindent = {
-				modifyLineBreaks = true
-			}
-		}
-
-	}
+				modifyLineBreaks = true,
+			},
+		},
+	},
 }

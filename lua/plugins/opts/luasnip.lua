@@ -5,7 +5,7 @@ local setup = function()
 
 	ls.setup({
 		update_events = { "TextChanged", "TextChangedI" },
-		enable_autosnippets = true
+		enable_autosnippets = true,
 	})
 
 	-- <c-k> is my expansion key

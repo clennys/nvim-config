@@ -1,6 +1,6 @@
 local setup = function()
--- local actions = require("telescope.actions")
-local trouble = require("trouble.providers.telescope")
+	-- local actions = require("telescope.actions")
+	local trouble = require("trouble.providers.telescope")
 	require("telescope").setup({
 		defaults = {
 			vimgrep_arguments = {
