@@ -11,6 +11,7 @@ local setup = function()
 			go = { "goimports", "gofmt" },
 			python = { "black" },
 			nix = { "alejandra", "nixfmt" },
+			tex = {"latexindent"}
 		},
 	})
 

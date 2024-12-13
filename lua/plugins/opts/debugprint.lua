@@ -1,6 +1,6 @@
 local setup = function()
 	local opts = {
-		create_keymaps = false,
+		-- keymaps = false,
 	}
 	require("debugprint").setup(opts)
 end

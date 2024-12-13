@@ -2,7 +2,7 @@ local setup = function()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "orca",
+			-- theme = "orca",
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
 			disabled_filetypes = {
@@ -60,6 +60,26 @@ local setup = function()
 		inactive_winbar = {},
 		extensions = {},
 	})
+	vim.cmd [[
+	hi lualine_a_normal guifg=#eaebed
+	hi lualine_b_normal guifg=#eaebed
+	hi lualine_c_normal guifg=#eaebed
+	hi lualine_a_insert guifg=#eaebed
+	hi lualine_b_insert guifg=#eaebed
+	hi lualine_c_insert guifg=#eaebed
+	hi lualine_a_visual guifg=#eaebed
+	hi lualine_b_visual guifg=#eaebed
+	hi lualine_c_visual guifg=#eaebed
+	hi lualine_a_command guifg=#eaebed
+	hi lualine_b_command guifg=#eaebed
+	hi lualine_c_command guifg=#eaebed
+	hi lualine_a_replace guifg=#eaebed
+	hi lualine_b_replace guifg=#eaebed
+	hi lualine_c_replace guifg=#eaebed
+	hi lualine_a_terminal guifg=#eaebed
+	hi lualine_b_terminal guifg=#eaebed
+	hi lualine_c_terminal guifg=#eaebed
+	]]
 end
 return {
 	"nvim-lualine/lualine.nvim",

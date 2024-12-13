@@ -16,7 +16,7 @@ local setup = function()
 		mapping = {
 			["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
 			["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-			["<C-e>"] = cmp.mapping.close(),
+			["<C-c>"] = cmp.mapping.close(),
 			["<CR>"] = cmp.mapping.confirm({ select = false }),
 		},
 		sources = {

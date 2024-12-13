@@ -1,6 +1,6 @@
 local setup = function()
 	-- local actions = require("telescope.actions")
-	local trouble = require("trouble.providers.telescope")
+	local trouble = require("trouble.sources.telescope")
 	require("telescope").setup({
 		defaults = {
 			vimgrep_arguments = {
@@ -41,8 +41,8 @@ local setup = function()
 			grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 			qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 			mappings = {
-				i = { ["<c-t>"] = trouble.open_with_trouble },
-				n = { ["<c-t>"] = trouble.open_with_trouble },
+				i = { ["<c-t>"] = trouble.open },
+				n = { ["<c-t>"] = trouble.open },
 			},
 		},
 	})

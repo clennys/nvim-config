@@ -1,5 +1,6 @@
 local setup = function()
-	require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/lua/snippets/" } })
+	require("luasnip.loaders.from_lua").lazy_load({ paths = vim.fn.stdpath("config") .. "/lua/snippets/luasnip" })
+	require("luasnip.loaders.from_vscode").lazy_load()
 
 	local ls = require("luasnip")
 
@@ -8,7 +9,6 @@ local setup = function()
 		enable_autosnippets = true,
 	})
 
-	-- <c-k> is my expansion key
 	-- this will expand the current item or jump to the next item within the snippet.
 	vim.keymap.set({ "i", "s" }, "<c-s>", function()
 		if ls.expand_or_jumpable() then
@@ -26,7 +26,7 @@ local setup = function()
 
 	-- <c-l> is selecting within a list of options.
 	-- This is useful for choice nodes (introduced in the forthcoming episode 2)
-	vim.keymap.set("i", "<c-l>", function()
+	vim.keymap.set("i", "<c-e>", function()
 		if ls.choice_active() then
 			ls.change_choice(1)
 		end
@@ -35,6 +35,10 @@ end
 
 return {
 	"L3MON4D3/LuaSnip",
+	-- follow latest release.
+	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	-- install jsregexp (optional!).
+	build = "make install_jsregexp",
 	dependencies = { { "rafamadriz/friendly-snippets" } },
 	config = setup,
 }

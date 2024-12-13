@@ -1,8 +1,12 @@
-local setup = function()
-	require("toggleterm").setup({
-		float_opts = {
-			border = "rounded",
+return {
+	"akinsho/toggleterm.nvim",
+	version = "*",
+	opts = {
+		open_mapping = [[<c-/>]],
+	},
+	highlights = {
+		Normal = {
+			guibg = "#030303",
 		},
-	})
-end
-return { "akinsho/toggleterm.nvim", version = "*", config = setup }
+	},
+}

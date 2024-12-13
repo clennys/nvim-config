@@ -1,7 +1,0 @@
-{	"todo":{"prefix":"todo","body":"TODO: (dhub) $0"},
-	"note":{"prefix":"note","body":"NOTE: (dhub) $0"},
-	"warn":{"prefix":"warn","body":"WARN: (dhub) $0"},
-	"fix":{"prefix":"fix","body":"FIX: (dhub) $0"},
-	"hack":{"prefix":"hack","body":"HACK: (dhub) $0"}
-}
-

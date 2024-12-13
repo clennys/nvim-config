@@ -1,0 +1,3 @@
+DEV: Configuring printers... {"src":"main.go:48"}
+ERROR: failed to determine host could not execute command to get host: : exit status 1 {"src":"main.go:51"}
+DEV: Notification: Error, Unable to connect to the mobility print server. {"src":"main.go:167"}
